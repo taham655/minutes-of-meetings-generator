@@ -17,8 +17,9 @@ This repository contains a Streamlit application that generates comprehensive me
 ## Installation
 
 1. Clone the repository:
-   [git clone https://github.com/yourusername/meeting-minutes-generator.git](https://github.com/taham655/minutes-of-meetings-generator.git)
+   
    ```
+   https://github.com/taham655/minutes-of-meetings-generator.git
    cd meeting-minutes-generator
    ```
 

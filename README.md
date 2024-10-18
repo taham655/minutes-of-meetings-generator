@@ -11,7 +11,7 @@ This repository contains a Streamlit application that generates comprehensive me
 
 ## Prerequisites
 
-- Python 3.7+
+- Python 3.9+
 - FFmpeg (for audio processing)
 
 ## Installation

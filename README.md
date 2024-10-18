@@ -55,7 +55,3 @@ This repository contains a Streamlit application that generates comprehensive me
 
 Ensure that FFmpeg is installed on your system. If it's not installed, the application will display an error message.
 
-
-## License
-
-This project is licensed under the MIT License.

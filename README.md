@@ -17,17 +17,17 @@ This repository contains a Streamlit application that generates comprehensive me
 ## Installation
 
 1. Clone the repository:
-   ```
    [git clone https://github.com/yourusername/meeting-minutes-generator.git](https://github.com/taham655/minutes-of-meetings-generator.git)
+   ```
    cd meeting-minutes-generator
    ```
 
-2. Install the required dependencies:
+3. Install the required dependencies:
    ```
    pip install -r requirements.txt
    ```
 
-3. Export the required API keys:
+4. Export the required API keys:
    ```
    export GROQ_API_KEY='your_groq_api_key_here'
    export OPENAI_API_KEY='your_openai_api_key_here'

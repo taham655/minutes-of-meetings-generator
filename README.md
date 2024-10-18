@@ -6,7 +6,7 @@ This repository contains a Streamlit application that generates comprehensive me
 
 - Supports multiple input formats: MP3, WAV, M4A, DOCX, and PDF
 - Transcribes audio files using Whisper API
-- Generates meeting minutes using GPT-4
+- Generates meeting minutes using GPT-4o
 - Provides downloadable output in both DOCX and PDF formats
 
 ## Prerequisites

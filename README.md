@@ -55,9 +55,6 @@ This repository contains a Streamlit application that generates comprehensive me
 
 Ensure that FFmpeg is installed on your system. If it's not installed, the application will display an error message.
 
-## Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
 
 ## License
 

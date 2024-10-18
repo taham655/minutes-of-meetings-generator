@@ -45,7 +45,7 @@ This repository contains a Streamlit application that generates comprehensive me
 
 2. Open your web browser and navigate to the URL provided by Streamlit (usually `http://localhost:8501`).
 
-3. Upload your audio file (MP3, WAV, M4A), DOCX, or PDF document.
+3. Upload your audio file (MP3, WAV, M4A).
 
 4. Click on "Generate Meeting Minutes" to process the file and create the minutes.
 

@@ -20,6 +20,8 @@ This repository contains a Streamlit application that generates comprehensive me
    
    ```
    https://github.com/taham655/minutes-of-meetings-generator.git
+   ```
+   ```
    cd meeting-minutes-generator
    ```
 

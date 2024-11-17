@@ -43,146 +43,25 @@ def initialize_language_model():
 
 def create_analysis_chain(llm):
     analysis_prompt = ChatPromptTemplate.from_messages([
-        ("system", """You are an AI assistant specialized in generating detailed and well-structured meeting minutes. 
-Your task is to analyze meeting transcripts and produce comprehensive, professional-grade meeting documentation.
+        ("system", "You are an AI assistant tasked with generating comprehensive minutes of the meetings."),
+        ("human", """Based on the following meeting transcript and information, please generate the following:
 
-Important Guidelines:
-- Be thorough yet concise in your analysis
-- Maintain professional language and formatting
-- Highlight key decisions and action items
-- Identify and categorize discussion topics
-- Capture deadlines and assignments clearly
-- Note any follow-up meetings or dependencies
-- Preserve important technical details and numbers
-- Include all participants' significant contributions"""),
-        
-        ("human", """Based on the following meeting transcript, please generate a comprehensive meeting report with the following structure:
+            Transcript: {transcript}
 
-Meeting Metadata:
-----------------
-- Date: [Extract or indicate if not mentioned]
-- Time: [Start and end time if available]
-- Location: [Physical location or virtual platform]
-- Meeting Type: [Regular/Special/Emergency/Follow-up]
-- Attendees: [List with roles if mentioned]
-- Facilitator/Chair: [If mentioned]
-- Note Taker: [If mentioned]
+            Please provide the following information:
+            1. Minutes of the meeting
+            2. What was discussed
+            3. A brief summary
+            4. The meeting agenda (inferred from the discussion)
+            5. Action items (things to be done)
 
-Transcript: {transcript}
-
-Please provide a detailed analysis with the following sections:
-
-1. Executive Summary (50-100 words)
-   - Key objectives achieved
-   - Major decisions made
-   - Critical announcements
-
-2. Meeting Agenda
-   - Reconstruct the agenda based on discussion flow
-   - Note if items were added during the meeting
-   - Identify tabled items
-
-3. Detailed Discussion Points
-   - Break down by topic/theme
-   - Include:
-     * Main arguments and perspectives
-     * Data or statistics presented
-     * Questions raised and answers provided
-     * Concerns or challenges discussed
-     * Solutions proposed
-     * Decisions reached
-     * Voting results (if any)
-
-4. Action Items
-   - List all tasks with:
-     * Task description
-     * Assignee(s)
-     * Priority level
-     * Due date
-     * Dependencies
-     * Success criteria
-     * Status (if mentioned)
-
-5. Resource Allocation
-   - Budget discussions
-   - Resource assignments
-   - Tool or system requirements
-
-6. Risk and Issues
-   - Identified risks
-   - Mitigation strategies
-   - Escalated issues
-   - Blockers
-
-7. Next Steps
-   - Immediate actions required
-   - Follow-up meeting details
-   - Dependencies on other teams/projects
-
-8. Additional Notes
-   - Parking lot items
-   - References to documents/presentations
-   - Links to relevant resources
-   - Related meetings
-
-Format Requirements:
--------------------
-- Use clear headings and subheadings
-- Bullet points for better readability
-- Bold text for emphasis on key points
-- Include page numbers for longer reports
-- Use tables where appropriate
-- Maintain consistent formatting
-- Be as detailed as possible
-
-Special Instructions:
---------------------
-1. For Technical Meetings:
-   - Preserve technical terminology
-   - Include system names and versions
-   - Note architectural decisions
-   - Document API changes or database updates
-
-2. For Strategy Meetings:
-   - Highlight market analysis
-   - Include competitor information
-   - Note strategic initiatives
-   - Capture timeline milestones
-
-3. For Project Updates:
-   - Include project metrics
-   - Note timeline changes
-   - List blocked items
-   - Document scope changes
-
-4. For Decision-Making Meetings:
-   - Detail options considered
-   - Document voting results
-   - Include dissenting opinions
-   - Note approval chain
-
-Length Guidelines:
------------------
-- Short Meetings (<30 mins): 1-2 pages
-- Medium Meetings (30-60 mins): 2-4 pages
-- Long Meetings (>60 mins): 4+ pages with section breaks
-
-Confidentiality Notice:
-----------------------
-- Mark sensitive information
-- Note distribution restrictions
-- Include classification level if applicable
-
-Quality Checks:
---------------
-- Verify all action items have owners
-- Ensure dates are clearly specified
-- Confirm all decisions are documented
-- Check for clarity and completeness
-- Validate technical accuracy
-- Review for consistent terminology""")
+            Leave space in the start for the following:
+            - Date:
+            - Location:
+            - Attendees:
+            """)
     ])
-    
+
     chain = (
         {"transcript": lambda _: RunnablePassthrough()}
         | analysis_prompt

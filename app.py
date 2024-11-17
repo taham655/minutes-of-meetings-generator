@@ -133,6 +133,7 @@ Format Requirements:
 - Include page numbers for longer reports
 - Use tables where appropriate
 - Maintain consistent formatting
+- Be as detailed as possible
 
 Special Instructions:
 --------------------
